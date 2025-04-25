@@ -1,14 +1,17 @@
-import { data } from "../data/data";
-
 // SPACE DATA EXERCISE 12
 // Return the sum of all moons for all planets
 // Return example: 42
 
 export function allPlanetsMoonsCount(data) {
   // Your code goes here...
+  return data.planets.reduce((acc, val) => {
+    if (val.hasOwnProperty("moonsCount")) {
+      return acc + val.moonsCount;
+    } else {
+      return acc;
+    }
+  }, 0);
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-12"

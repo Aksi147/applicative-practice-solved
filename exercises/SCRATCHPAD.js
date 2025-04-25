@@ -5,7 +5,7 @@
  */
 import { maxBy } from "./e17";
 
-export function getGreatestDiscoveryYear(data) {
+function getGreatestDiscoveryYear(data) {
   // Your code goes here...
   // feel free to import your `maxBy` or `minBy` methods from previous lessons
   const counts = {};
@@ -23,12 +23,43 @@ export function getGreatestDiscoveryYear(data) {
   yearArray = Object.entries(counts).map(([year, count]) => {
     return { year: Number(year), count };
   });
-  let maxYear = maxBy(yearArray, (item) => item.count);
-  let result = maxYear.year;
+  maxYear = maxBy(yearArray, (item) => item.year);
+  result = maxYear.year;
   return result;
 }
+
+console.log(getGreatestDiscoveryYear(data));
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-18"
 // If the test has all tests passed, switch to the next exercise file
 // If any of the tests fails, refactor the code and run the test command after you've fixed the function
+
+// THIS IS AN OLDER FUNCTION I WANT TO SAVE JUST IN CASE.
+/* function getGreatestDiscoveryYear(data) {
+  // Your code goes here...
+  // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  const counts = {};
+  for (let asteroid of data.asteroids) {
+    let year = asteroid.discoveryYear;
+    if (counts[year]) {
+      counts[year]++;
+    } else {
+      counts[year] = 1;
+    }
+  }
+
+  let maxYear = null;
+  let maxCount = 0;
+
+  //different variant of my maxBy() function
+
+  for (let year in counts) {
+    if (counts[year] > maxCount) {
+      maxYear = year;
+      maxCount = counts[year];
+    }
+  }
+
+  return Number(maxYear);
+} */

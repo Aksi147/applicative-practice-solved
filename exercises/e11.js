@@ -1,5 +1,3 @@
-import { data } from "../data/data";
-
 // SPACE DATA EXERCISE 11
 // Return an array of Planets' names with less than 10 moons
 // include planets with 0 moons
@@ -7,6 +5,15 @@ import { data } from "../data/data";
 
 export function lowMoonsPlanets(data) {
   // Your code goes here...
+  return data.planets
+    .filter((planet) => {
+      if (planet.moonsCount < 10 || !planet.hasOwnProperty("moonsCount")) {
+        return planet.name;
+      }
+    })
+    .map((planet) => {
+      return planet.name;
+    });
 }
 
 // === TEST YOURSELF ===

@@ -4,9 +4,7 @@
 
 export function getAsteroidNames(data) {
   // Your code goes here...
-  return data.asteroids.map(function (bigRock) {
-    return bigRock.name;
-  });
+  return data.asteroids.map((bigRock) => bigRock.name);
 }
 
 // === TEST YOURSELF ===

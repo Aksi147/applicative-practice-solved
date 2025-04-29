@@ -4,9 +4,7 @@
 
 export function getAllAverageTemperatures(data) {
   // Your code goes here...
-  return data.planets.map(function (planet) {
-    return planet.avgTemp;
-  });
+  return data.planets.map((planet) => planet.avgTemp);
 }
 
 // === TEST YOURSELF ===

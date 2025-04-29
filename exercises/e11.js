@@ -5,17 +5,13 @@
 
 export function lowMoonsPlanets(data) {
   // Your code goes here...
-  return data.planets
-    .filter((planet) => {
-      if (planet.moonsCount < 10 || !planet.hasOwnProperty("moonsCount")) {
-        return planet.name;
-      }
-    })
-    .map((planet) => {
-      return planet.name;
-    });
+  return data.planets.reduce((acc, planet) => {
+    if (planet.moonsCount < 10 || !planet.hasOwnProperty("moonsCount")) {
+      acc.push(planet.name);
+    }
+    return acc;
+  }, []);
 }
-
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-11"
 // If the test has all tests passed, switch to the next exercise file

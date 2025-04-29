@@ -4,13 +4,12 @@
 
 export function getPlanetsNamesWithMoons(data) {
   // Your code goes here...
-  return data.planets
-    .filter((planet) => {
-      return planet.hasOwnProperty("moons");
-    })
-    .map((planet) => {
-      return planet.name;
-    });
+  return data.planets.reduce((acc, planet) => {
+    if (planet.hasOwnProperty("moons")) {
+      acc.push(planet.name);
+    }
+    return acc;
+  }, []);
 }
 
 // === TEST YOURSELF ===

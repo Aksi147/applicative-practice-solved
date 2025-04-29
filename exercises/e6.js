@@ -4,13 +4,12 @@
 
 export function getAsteroidsDiscoveredAfterYear(data, year) {
   // Your code goes here...
-  return data.asteroids
-    .filter((bigRock) => {
-      return bigRock.discoveryYear > year;
-    })
-    .map((bigRock) => {
-      return bigRock.name;
-    });
+  return data.asteroids.reduce((acc, bigRock) => {
+    if (bigRock.discoveryYear > year) {
+      acc.push(bigRock.name);
+    }
+    return acc;
+  }, []);
 }
 
 // === TEST YOURSELF ===

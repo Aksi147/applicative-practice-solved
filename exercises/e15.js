@@ -4,15 +4,12 @@
 
 export function getPlanetsWithNoMoons(data) {
   // Your code goes here...
-  return data.planets
-    .filter((planet) => {
-      if (!planet.hasOwnProperty("moons")) {
-        return planet;
-      }
-    })
-    .map((planet) => {
-      return planet.name;
-    });
+  return data.planets.reduce((acc, planet) => {
+    if (!planet.moons) {
+      acc.push(planet.name);
+    }
+    return acc;
+  }, []);
 }
 
 // === TEST YOURSELF ===
